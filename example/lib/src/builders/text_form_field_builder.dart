@@ -4,20 +4,18 @@ part 'text_form_field_builder.g.dart';
 
 @jsonWidget
 abstract class _TextFormFieldBuilder extends JsonWidgetBuilder {
-  _TextFormFieldBuilder({
-    required super.numSupportedChildren,
-  });
+  _TextFormFieldBuilder();
 
   final TextEditingController _controller = TextEditingController();
 
-  @JsonParamSchema('decoration')
+  @JsonArgSchema('decoration')
   static Map<String, dynamic> _inputDecorationSchema() =>
       SchemaHelper.objectSchema(InputDecorationDecoder.schemaId);
 
-  @JsonParamDecoder('controller')
+  @JsonArgDecoder('controller')
   TextEditingController _decodeController() => _controller;
 
-  @JsonParamDecoder('decoration')
+  @JsonArgDecoder('decoration')
   InputDecoration? _decodeInputDecoration({
     required ChildWidgetBuilder? childBuilder,
     required BuildContext context,
@@ -43,7 +41,7 @@ abstract class _TextFormFieldBuilder extends JsonWidgetBuilder {
       _TextFormField(
         builder: this,
         data: data,
-        child: _buildCustom(
+        child: _build(
           childBuilder: childBuilder,
           context: context,
           data: data,
@@ -52,7 +50,7 @@ abstract class _TextFormFieldBuilder extends JsonWidgetBuilder {
       );
 
   @JsonBuilder()
-  TextFormField _buildCustom({
+  TextFormField _build({
     ChildWidgetBuilder? childBuilder,
     required BuildContext context,
     required JsonWidgetData data,

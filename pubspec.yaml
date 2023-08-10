@@ -23,6 +23,7 @@ dependencies:
   recase: '^4.1.0'
   source_gen: '^1.2.7'
   template_expressions: '^3.0.4+1'
+  yaml_writer: ^1.0.3
   yaon: '^1.1.2+1'
 
 dev_dependencies:

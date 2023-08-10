@@ -23,7 +23,18 @@ final kSchemaDecoders = <String, ParameterSchemaDecoder>{
   'int': (element) => 'SchemaHelper.numberSchema',
   'List<double>': (element) => json.encode(_kNumberArraySchema),
   'List<int>': (element) => json.encode(_kNumberArraySchema),
+  'List<JsonWidgetData>': (element) =>
+      'SchemaHelper.arraySchema(JsonWidgetDataSchema.id)',
+  'List<PreferredSizeWidget>': (element) =>
+      'SchemaHelper.arraySchema(JsonWidgetDataSchema.id)',
+  'List<Widget>': (element) =>
+      'SchemaHelper.arraySchema(JsonWidgetDataSchema.id)',
+  'JsonWidgetData': (element) =>
+      'SchemaHelper.objectSchema(JsonWidgetDataSchema.id)',
+  'PreferredSizeWidget': (element) =>
+      'SchemaHelper.objectSchema(JsonWidgetDataSchema.id)',
   'String': (element) => 'SchemaHelper.stringSchema',
+  'Widget': (element) => 'SchemaHelper.objectSchema(JsonWidgetDataSchema.id)',
   ...kThemeDecoders.map(
     (key, value) => MapEntry<String, ParameterSchemaDecoder>(
       key,
